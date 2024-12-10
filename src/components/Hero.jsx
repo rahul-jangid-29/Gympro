@@ -1,82 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import Navbar from "./Navbar"; // Import the Navbar component
+import "../styles/hero.css"; // Import your CSS for styling
 
 const Hero = () => {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    // Monitor authentication state
-    const unsubscribe = window.auth.onAuthStateChanged((currentUser) => {
-      setUser(currentUser); // Update state with the current user
-    });
-
-    return () => unsubscribe(); // Cleanup on unmount
-  }, []);
-
-  const handleLogout = () => {
-    window.auth
-      .signOut()
-      .then(() => alert("Logged out successfully"))
-      .catch((err) => console.error(err));
-  };
-
   return (
     <header className="hero-section position-relative">
-      {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-transparent position-absolute w-100">
-        <div className="container-fluid">
-          <a className="navbar-brand fw-bold text-white" href="#">
-            GymPro
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <a className="nav-link active fw-semibold text-white" href="#">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link fw-semibold text-white" href="#facilities">
-                  Facilities
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link fw-semibold text-white" href="#contact">
-                  Contact
-                </a>
-              </li>
-            </ul>
-            <Link to="/signup" className="btn btn-primary fw-semibold shadow-lg">
-              Join Now
-            </Link>
-            {user && ( // Show Logout button only if user is logged in
-              <button onClick={handleLogout} className="btn btn-secondary ms-2">
-                Logout
-              </button>
-            )}
-          </div>
-        </div>
-      </nav>
+      <Navbar /> {/* Insert Navbar here */}
+
       {/* Hero Content */}
       <div className="container text-center text-white hero-content">
-        <h1 className="display-4 fw-bold">Welcome to GymPro</h1>
-        <p className="lead">
-          Achieve your fitness goals with personalized training programs.
+        <h1 className="display-3 fw-bold mb-4">
+          Welcome to <span className="text-warning">GymPro</span>
+        </h1>
+        <p className="lead mb-5 mx-auto" style={{ width: "60%" }}>
+          Unlock your full potential with personalized fitness programs and expert guidance. Whether you're looking to get fit, stay in shape, or challenge yourself, we have the right plan for you! Our expert trainers, flexible scheduling, and variety of classes will guide you every step of the way.
         </p>
-        <a href="#membership" className="btn btn-primary btn-lg mt-3">
-          Explore Plans
-        </a>
+
+        <div className="d-flex justify-content-center">
+          <a href="#membership" className="btn btn-primary btn-lg px-4 py-2 me-3 shadow-lg">
+            Explore Plans
+          </a>
+          <a href="/contact" className="btn btn-outline-light btn-lg px-4 py-2 shadow-lg">
+            Contact Us
+          </a>
+        </div>
       </div>
     </header>
   );

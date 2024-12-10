@@ -36,7 +36,7 @@ const Gallery = () => {
   ];
 
   return (
-    <section className="gallery-section py-5 bg-light">
+    <section className="gallery-section py-5 bg-light" id="facilities">
       <div className="container">
         <h2 className="text-center mb-4 fw-bold">Our Gym Gallery</h2>
         <p className="text-center mb-5 text-muted">

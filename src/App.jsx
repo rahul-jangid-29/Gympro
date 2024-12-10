@@ -11,7 +11,9 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./pages/Dashboard.jsx";
-import Payment from "./components/Payment.jsx";  // Import the Payment component
+import Payment from "./components/Payment.jsx"; 
+import Contact from "./components/Contact.jsx";
+import Trainers from "./components/Trainer.jsx";
 
 // Layout for public pages
 const PublicLayout = ({ children }) => (
@@ -35,11 +37,14 @@ function App() {
                 <MembershipPlans />
                 <Gallery />
                 <Testimonials />
+                <Trainers/>
               </PublicLayout>
             }
           />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/contact" element={<Contact />} />
+
 
           {/* Payment Route */}
           <Route path="/payment" element={<Payment />} />  {/* PayPal button shown here */}
