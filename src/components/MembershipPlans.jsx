@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MembershipPlans = () => {
   const plans = [
@@ -45,9 +46,9 @@ const MembershipPlans = () => {
                     <li key={i}>• {feature}</li>
                   ))}
                 </ul>
-                <a href="#!" className="btn btn-outline-primary mt-3">
+                <Link to="/payment" className="btn btn-outline-primary mt-3">
                   Join Now
-                </a>
+                </Link>
               </div>
             </div>
           ))}

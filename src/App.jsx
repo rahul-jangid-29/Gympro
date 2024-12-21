@@ -25,7 +25,7 @@ const PublicLayout = ({ children }) => (
 
 function App() {
   return (
-    <PayPalScriptProvider options={{ "client-id": "YOUR_CLIENT_ID", currency: "USD" }}>
+    <PayPalScriptProvider options={{ "client-id": "BAAqS8yo8bURmFFRo1gSTK_RRaEPyh8f-dYXFWc3pf9lEy0qikhtjRCz9l8DA_4HOkuXkD0w8gQwhtJA_Q", currency: "USD" }}>
       <Router>
         <Routes>
           {/* Public Routes */}
@@ -44,6 +44,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/payment" element={<Payment />} />
 
 
           {/* Payment Route */}
